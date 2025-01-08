@@ -3,9 +3,9 @@ public class Member {
     private int memberId;
     private String name;
     private String contact;
-
-    public Member(int memberId, String name, String contact) {
-        this.memberId = memberId;
+public static int memberCount = 0;
+    public Member( String name, String contact) {
+        this.memberId = ++memberCount;
         this.name = name;
         this.contact = contact;
     }

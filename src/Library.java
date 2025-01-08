@@ -28,6 +28,7 @@ public class Library {
     // Add methods for each operation (addBook, removeBook, etc.)
     public void addBook(Book book) {
         books.add(book);
+        book.displayBookDetails();
     }
 
     public void addMember(Member member) {

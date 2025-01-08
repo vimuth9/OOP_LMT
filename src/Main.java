@@ -3,32 +3,32 @@ import java.time.LocalDate;
 import java.util.Scanner;
 
 
-public class Main{
+public class Main {
     public static void main(String[] args) {
         Library library = new Library();
         Scanner scanner = new Scanner(System.in);
 
         // Adding some initial data
-        library.addStaff(new Staff(1, "Rivindu", "Rivindu123"));
-        library.addStaff(new Staff(2, "Vimuth", "Vimuth123"));
-        library.addBook(new Book(1, "Harry Potter", "J.K. Rowling"));
-        library.addBook(new Book(2, "Alice in Wonderland", "Lewis Carrol"));
-        library.addMember(new Member(1, "amal kumara", "1234567890"));
-        library.addMember(new Member(2, "sunil shantha", "123498764"));
+        library.addStaff(new Staff("Rivindu", "Rivindu123"));
+        library.addStaff(new Staff("Vimuth", "Vimuth123"));
+        library.addBook(new Book("Harry Potter", "J.K. Rowling"));
+        library.addBook(new Book("Alice in Wonderland", "Lewis Carrol"));
+        library.addMember(new Member("amal kumara", "1234567890"));
+        library.addMember(new Member("sunil shantha", "123498764"));
 
-        boolean authenticated=false;
-        while(!authenticated){
+        boolean authenticated = false;
+        while (!authenticated) {
             System.out.println("\n=== Login ===");
 
             System.out.println("Enter Username:");
-            String username =scanner.nextLine();
+            String username = scanner.nextLine();
 
             System.out.println("Enter Password:");
-            String password =scanner.nextLine();
+            String password = scanner.nextLine();
 
 
-            authenticated =Library.authenticate(username,password);
-            if(!authenticated){
+            authenticated = Library.authenticate(username, password);
+            if (!authenticated) {
                 System.out.println("incorrect username or password");
             }
         }
@@ -55,27 +55,28 @@ public class Main{
 
             switch (choice) {
                 case 1: // Add Book
-                    System.out.print("Enter Book ID: ");
-                    int bookId = scanner.nextInt();
-                    scanner.nextLine(); // Consume newline
+                    // removed so that the book ID is calculated automatically
+//                    System.out.print("Enter Book ID: ");
+//                    int bookId = scanner.nextInt();
+//                    scanner.nextLine(); // Consume newline
                     System.out.print("Enter Book Title: ");
                     String title = scanner.nextLine();
                     System.out.print("Enter Book Author: ");
                     String author = scanner.nextLine();
-                    library.addBook(new Book(bookId, title, author));
+                    library.addBook(new Book(title, author));
                     System.out.println("Book added successfully!");
                     break;
 
                 case 2: // Remove Book
                     System.out.print("Enter Book ID to remove: ");
                     int removeBookId = scanner.nextInt();
-                      Book bookToRemove = library.findBookById(removeBookId);
-                      if (bookToRemove != null) {
-                          library.getAvailableBooks().remove(bookToRemove);
-                         System.out.println("Book removed successfully!");
-                      } else {
-                          System.out.println("Book not found.");
-                      }
+                    Book bookToRemove = library.findBookById(removeBookId);
+                    if (bookToRemove != null) {
+                        library.getAvailableBooks().remove(bookToRemove);
+                        System.out.println("Book removed successfully!");
+                    } else {
+                        System.out.println("Book not found.");
+                    }
                     break;
 
                 case 3: // Show Available Books
@@ -93,7 +94,7 @@ public class Main{
                     String memberName = scanner.nextLine();
                     System.out.print("Enter Member Contact: ");
                     String contact = scanner.nextLine();
-                    library.addMember(new Member(memberId, memberName, contact));
+                    library.addMember(new Member(memberName, contact));
                     System.out.println("Member added successfully!");
                     break;
 
