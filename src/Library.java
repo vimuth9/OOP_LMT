@@ -6,11 +6,7 @@ public class Library {
     private ArrayList<Member> members = new ArrayList<>();
     private static ArrayList<Staff> staffList = new ArrayList<>();
     private ArrayList<Transaction> transactions = new ArrayList<>();
-    private int transactionIdCounter = 1;
 
-    public ArrayList<Staff> getStaffList() {
-        return staffList;
-    }
 
     public ArrayList<Book> getBooks() {
         return books;
@@ -20,6 +16,10 @@ public class Library {
         return members;
     }
 
+    public ArrayList<Staff> getStaffList() {
+        return staffList;
+    }
+
     public ArrayList<Transaction> getTransactions() {
         return transactions;
     }
@@ -27,7 +27,7 @@ public class Library {
     // Add methods for each operation (addBook, removeBook, etc.)
     public void addBook(Book book) {
         books.add(book);
-        book.displayBookDetails();
+        System.out.println(book.displayBookDetails() + "been added");
     }
 
     public void addMember(Member member) {
@@ -50,7 +50,7 @@ public class Library {
         Book book = findBookById(bookId);
         if (book != null && book.isAvailable()) {
             book.setAvailable(false);
-            Transaction transaction = new Transaction(transactionIdCounter++, memberId, bookId, LocalDate.now());
+            Transaction transaction = new Transaction(memberId, bookId, LocalDate.now());
             transactions.add(transaction);
             return transaction;
         }
@@ -73,6 +73,5 @@ public class Library {
         return false;
     }
 
-    // Add similar methods for other operations
 }
 
