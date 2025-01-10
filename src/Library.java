@@ -1,7 +1,6 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-
 public class Library {
     private ArrayList<Book> books = new ArrayList<>();
     private ArrayList<Member> members = new ArrayList<>();
@@ -65,7 +64,7 @@ public class Library {
         return null;
     }
 
-    public static boolean  authenticate(String username, String password) {
+    public static boolean authenticate(String username, String password) {
         for (Staff staff : staffList) {
             if (staff.getUsername().equals(username) && staff.verifyPassword(password)) {
                 return true;

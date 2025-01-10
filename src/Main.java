@@ -7,7 +7,6 @@ public class Main {
     public static void main(String[] args) {
         Library library = new Library();
         Scanner scanner = new Scanner(System.in);
-
         // Adding some initial data
         library.addStaff(new Staff("Rivindu", "Rivindu123"));
         library.addStaff(new Staff("Vimuth", "Vimuth123"));
