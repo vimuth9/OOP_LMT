@@ -24,7 +24,7 @@ public class Staff {
         return this.password.equals(inputPassword);
     }
 
-    public String toString() {
+    public String displayStaffDetails() {
         return staffId + ": " + username;
     }
 }
