@@ -82,20 +82,45 @@
 
 ### Methods
 
-| Name              | return Type | Access Modifier | Note |
-|:------------------|:-----------:|:---------------:|:-----|
-| getBooks          |   String    |     public      |      |
-| getMembers        |   String    |     public      |      |
-| getStaffList      |     int     |     public      |      |
-| getTransactions   |   String    |     public      |      |
-|                   |             |                 |      |
-| addBook           |    void     |                 |      |
-| addMember         |    void     |                 |      |
-| addStaff          |    void     |                 |      |
-|                   |             |                 |      |
-| getAvailableBooks |             |                 |      |
-| lendBook          |             |                 |      |
-| findBookById      |             |                 |      |
-| authenticate      |             |                 |      |
+| Name              |   return Type   | Access Modifier | Note |
+|:------------------|:---------------:|:---------------:|:-----|
+| getBooks          |     String      |     public      |      |
+| getMembers        |     String      |     public      |      |
+| getStaffList      |       int       |     public      |      |
+| getTransactions   |     String      |     public      |      |
+|                   |                 |                 |      |
+| addBook           |      void       |     public      |      |
+| addMember         |      void       |     public      |      |
+| addStaff          |      void       |     public      |      |
+|                   |                 |                 |      |
+| getAvailableBooks | ArrayList<Book> |     public      |      |
+| lendBook          |   Transaction   |     public      |      |
+| findBookById      |      Book       |     public      |      |
+| authenticate      |     boolean     |  public-static  |      |
 
+## Transaction -----------------------
 
+### Attributes
+
+| Name             | Data Type | Access Modifier | Note                                               |
+|:-----------------|:---------:|:---------------:|:---------------------------------------------------|
+| transactionId    |    int    |     private     |                                                    |
+| memberId         |    int    |     private     |                                                    |
+| bookId           |    int    |     private     |                                                    |
+| lendDate         | LocalDate |     private     |                                                    |
+| transactionCount |    int    |  public-static  | Initially it is set to 0, change when sql is added |
+
+### Methods
+
+| Name                      |   return Type   | Access Modifier | Note                                 |
+|:--------------------------|:---------------:|:---------------:|:-------------------------------------|
+| getTransactionId          |       int       |     public      |                                      |
+| getMemberId               |       int       |     public      |                                      |
+| getBookId                 |       int       |     public      |                                      |
+| getLendDate               |    LocalDate    |     public      |                                      |
+| getReturnDate             |    LocalDate    |                 |                                      |
+|                           |                 |                 |                                      |
+|                           |                 |                 |                                      |
+| calculateFine             |                 |                 | // Calculate fine (if returned late) |
+| returnDate                |                 |                 | I don't know what it is stand for    |
+| displayTransactionDetails |                 |                 |                                      |
