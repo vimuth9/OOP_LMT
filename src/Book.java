@@ -1,5 +1,6 @@
 public class Book {
-    private static int id;
+
+    private static int bookId;
     private static String title;
     private static String author;
     private boolean isAvailable;
@@ -7,16 +8,16 @@ public class Book {
     public static int bookCount = 0;
 
     public Book(String title, String author) {
-        this.id = ++bookCount;
+        this.bookId = ++bookCount;
         this.title = title;
         this.author = author;
-        this.isAvailable = true; // Default: available
+        this.isAvailable = true; // Default: available (true)
 
     }
 
     // Getters and Setters
     public int getId() {
-        return id;
+        return bookId;
     }
 
     public String getTitle() {
@@ -31,19 +32,14 @@ public class Book {
         return isAvailable;
     }
 
-
-    public static void displayBookDetails() {
-        System.out.println("Book Title: " + title);
-        System.out.println("Book ID: " + id);
-        System.out.println("Book Author: " + author);
-    }
-
     public void setAvailable(boolean available) {
         this.isAvailable = available;
     }
 
-    public String toString() {
-        return id + ": " + title + " by " + author;
+    public String displayBookDetails() {
+        return bookId + ": " + title + " by " + author;
     }
+
+
 }
 
