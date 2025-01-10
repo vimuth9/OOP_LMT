@@ -30,7 +30,7 @@ public class Transaction {
 
     private LocalDate returnDate;
 
-    public Transaction(int transactionId, int memberId, int bookId, LocalDate lendDate) {
+    public Transaction(int memberId, int bookId, LocalDate lendDate) {
         this.transactionId = ++transactionCount;
         this.memberId = memberId;
         this.bookId = bookId;
@@ -49,7 +49,7 @@ public class Transaction {
         this.returnDate = returnDate;
     }
 
-    public String toString() {
+    public String displayTransactionDetails() {
         return "Transaction " + transactionId + ": Member " + memberId + " borrowed Book " + bookId +
                 " on " + lendDate + (returnDate == null ? "" : ", returned on " + returnDate + (calculateFine() == 0 ? "" : ", fine to pay " + calculateFine()));
     }
